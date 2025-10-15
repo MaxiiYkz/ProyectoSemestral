@@ -16,7 +16,9 @@ import com.example.proyectosemestral.ui.theme.ProyectoSemestralTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+
+
         setContent {
             ProyectoSemestralTheme {
                 Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
@@ -31,17 +33,3 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ProyectoSemestralTheme {
-        Greeting("Android")
-    }
-}
