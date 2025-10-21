@@ -1,5 +1,4 @@
 package com.example.myapplication
-data class Game(val title: String, val price: Int, val imageUrl: String)
 
 
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+data class Game(val title: String, val price: Int, val imageUrl: String)
 
 class GameAdapter(
     private val games: List<Game>,
