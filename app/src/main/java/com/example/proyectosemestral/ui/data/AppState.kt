@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
+
 data class Usuario(val email: String, val contraseña: String)
 
 class AppState(private val dataStore: DataStoreManager){
@@ -51,4 +52,6 @@ class AppState(private val dataStore: DataStoreManager){
 
 
 
+
+    val usuariosActual: Usuario? = null
 }
