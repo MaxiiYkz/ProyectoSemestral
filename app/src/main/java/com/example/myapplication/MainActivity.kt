@@ -1,47 +1,53 @@
 package com.example.myapplication
-
+// MainActivity.kt
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+
+        setupCategories()
+        setupReviews()
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    private fun setupCategories() {
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewCategories)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+        val categoryList = listOf(
+            Category(
+                "SHOOTERS",
+                "Sumérgete en intensas batallas donde la puntería y los reflejos lo son todo.",
+                R.drawable.shooters // Nombre del archivo en res/drawable
+            ),
+            Category(
+                "JUEGOS DE ROL",
+                "Te invitamos a que experimentes mundos exóticos en los que tu misión es encontrar la solución.",
+                R.drawable.rol1
+            ),
+            Category(
+                "VIDEOJUEGOS CASUALES",
+                "Una colección de juegos únicos y peculiares para que relajes tu día.",
+                R.drawable.casual
+            )
+        )
+        recyclerView.adapter = CategoryAdapter(categoryList)
+    }
+
+    private fun setupReviews() {
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewReviews)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val reviewList = listOf(
+            Review(5, "Compré un juego y llegó instantáneamente, excelente servicio.", "Juan Pérez"),
+            Review(4, "Gran variedad de títulos y precios muy buenos, recomendado.", "María Gómez"),
+            Review(5, "Me sorprendió lo rápido y fácil que fue comprar, 10/10.", "Carlos Ramírez")
+        )
+        recyclerView.adapter = ReviewAdapter(reviewList)
     }
 }
