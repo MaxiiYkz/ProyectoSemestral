@@ -41,7 +41,14 @@ android {
     }
 }
 
+
 dependencies {
+
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
+    implementation("com.google.code.gson:gson:2.13.2")
+    val nav_version = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:${nav_version}")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
