@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-data class Game(val title: String, val price: Int, val imageUrl: String)
+data class Game(val title: String, val price: Double, val imageUrl: String)
 
 class GameAdapter(
     private val games: List<Game>,
