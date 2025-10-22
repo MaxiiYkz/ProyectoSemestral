@@ -93,11 +93,8 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 text = "Inicia sesión para continuar",
                 style = MaterialTheme.typography.bodyLarge
             )
-
             Spacer(Modifier.height(32.dp))
 
-            verticalArrangement = Arrangement.Center
-        ){
             OutlinedTextField(
                 value = usuario,
                 onValueChange = { usuario = it },
@@ -108,9 +105,7 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 }
             )
             Spacer(Modifier.height(16.dp))
-                modifier = Modifier.fillMaxWidth()
-            )
-            Spacer(Modifier.height(8.dp))
+
             OutlinedTextField(
                 value = contrasena,
                 onValueChange = { contrasena = it },
@@ -132,9 +127,7 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 }
             )
             Spacer(Modifier.height(24.dp))
-                modifier = Modifier.fillMaxWidth()
-            )
-            Spacer(Modifier.height(16.dp))
+
             if(error.isNotEmpty()){
                 Text(error, color = MaterialTheme.colorScheme.error)
                 Spacer(Modifier.height(8.dp))
@@ -170,12 +163,6 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 TextButton(onClick =  { navController.navigate("registro")}) {
                     Text("¿No tienes cuenta? Regístrate Aquí")
                 }
-            ) {
-                Text("Iniciar Sesión")
-            }
-            Spacer(Modifier.height(8.dp))
-            TextButton(onClick =  { navController.navigate("registro")}) {
-                Text("¿No tienes cuenta? Regístrate Aquí")
             }
         }
     }
