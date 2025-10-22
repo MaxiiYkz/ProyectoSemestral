@@ -48,7 +48,6 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.2")
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-compose:${nav_version}")
-
     implementation("androidx.compose.material:material-icons-extended:1.6.8")
     implementation ("androidx.compose.material3:material3")
 

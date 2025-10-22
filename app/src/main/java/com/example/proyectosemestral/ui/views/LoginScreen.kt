@@ -20,6 +20,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -95,6 +96,8 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
 
             Spacer(Modifier.height(32.dp))
 
+            verticalArrangement = Arrangement.Center
+        ){
             OutlinedTextField(
                 value = usuario,
                 onValueChange = { usuario = it },
@@ -105,7 +108,9 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 }
             )
             Spacer(Modifier.height(16.dp))
-
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(8.dp))
             OutlinedTextField(
                 value = contrasena,
                 onValueChange = { contrasena = it },
@@ -127,7 +132,9 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 }
             )
             Spacer(Modifier.height(24.dp))
-
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(16.dp))
             if(error.isNotEmpty()){
                 Text(error, color = MaterialTheme.colorScheme.error)
                 Spacer(Modifier.height(8.dp))
@@ -163,6 +170,12 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 TextButton(onClick =  { navController.navigate("registro")}) {
                     Text("¿No tienes cuenta? Regístrate Aquí")
                 }
+            ) {
+                Text("Iniciar Sesión")
+            }
+            Spacer(Modifier.height(8.dp))
+            TextButton(onClick =  { navController.navigate("registro")}) {
+                Text("¿No tienes cuenta? Regístrate Aquí")
             }
         }
     }
