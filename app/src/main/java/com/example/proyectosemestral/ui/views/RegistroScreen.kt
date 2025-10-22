@@ -26,12 +26,12 @@ import com.example.proyectosemestral.ui.data.AppState
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun RegistroScreen(navController: NavController, appState: AppState){
+fun RegistroScreen(navController: NavHostController, appState: AppState){
 
-    var email by remember { mutableStateListOf("") }
-    var contraseña by remember { mutableStateListOf("") }
-    var confirmarContraseña by remember { mutableStateListOf("") }
-    var error by remember { mutableStateListOf("") }
+    var email by remember { mutableStateOf("") }
+    var contraseña by remember { mutableStateOf("") }
+    var confirmarContraseña by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf("") }
 
 
     Scaffold (
@@ -81,7 +81,7 @@ fun RegistroScreen(navController: NavController, appState: AppState){
                 Spacer(Modifier.height(8.dp))
             }
             Button(
-                OnClick = {
+                onClick = {
                     when{
                         email.isBlank()|| contraseña.isBlank() || confirmarContraseña.isBlank() ->
                             error = "Todos los Campos son Obligatorios"
@@ -89,7 +89,7 @@ fun RegistroScreen(navController: NavController, appState: AppState){
                             error = "Email no Válido"
                         email.length < 6 ->
                             error = "El email debe tener al menos 6 caracteres"
-                        contraseña.lenght < 6 ->
+                        contraseña.length < 6 ->
                             error = "La contraseña debe tener al menos 6 caracteres"
                         contraseña != confirmarContraseña ->
                             error = "La contraseña no coincide"
