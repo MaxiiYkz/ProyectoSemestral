@@ -9,7 +9,7 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-val Contex.dataStore by preferencesDataStore(name = "app_prefs")
+val Context.dataStore by preferencesDataStore(name = "app_prefs")
 
 class DataStoreManager(private val context: Context){
     private val gson = Gson()

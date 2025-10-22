@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 
-data class Usuario(val email: String, val contraseña: String)
+data class Usuario(val email: String, val contrasena: String)
 
 class AppState(private val dataStore: DataStoreManager){
     val usuarios = mutableStateListOf<Usuario>()
@@ -28,16 +28,16 @@ class AppState(private val dataStore: DataStoreManager){
         }
     }
 
-    fun registrarUsuario(email: String, contraseña: String): Boolean{
+    fun registrarUsuario(email: String, contrasena: String): Boolean{
         if (usuarios.any{ it.email == email}) return false
-        val nuevo = Usuario(email, contraseña)
+        val nuevo = Usuario(email, contrasena)
         usuarios.add(nuevo)
         guardarUsuarios()
         return true
     }
 
-    fun login(email: String, contraseña: String): Boolean{
-        var user = usuarios.find { it.email == email && it.contraseña == contraseña }
+    fun login(email: String, contrasena: String): Boolean{
+        var user = usuarios.find { it.email == email && it.contrasena == contrasena }
         return if ( user != null){
             usuarioActual = user
             true

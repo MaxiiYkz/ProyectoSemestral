@@ -29,8 +29,8 @@ import com.example.proyectosemestral.ui.data.AppState
 fun RegistroScreen(navController: NavHostController, appState: AppState){
 
     var email by remember { mutableStateOf("") }
-    var contraseña by remember { mutableStateOf("") }
-    var confirmarContraseña by remember { mutableStateOf("") }
+    var contrasena by remember { mutableStateOf("") }
+    var confirmarContrasena by remember { mutableStateOf("") }
     var error by remember { mutableStateOf("") }
 
 
@@ -62,15 +62,15 @@ fun RegistroScreen(navController: NavHostController, appState: AppState){
             )
             Spacer(Modifier.height(8.dp))
             OutlinedTextField(
-                value = contraseña,
-                onValueChange = { contraseña = it },
+                value = contrasena,
+                onValueChange = { contrasena = it },
                 label = { Text("Contraseña") },
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(Modifier.height(8.dp))
             OutlinedTextField(
-                value = confirmarContraseña,
-                onValueChange = { confirmarContraseña = it },
+                value = confirmarContrasena,
+                onValueChange = { confirmarContrasena = it },
                 label = { Text("Confirmar Contraseña")},
                 modifier = Modifier.fillMaxWidth()
             )
@@ -83,17 +83,17 @@ fun RegistroScreen(navController: NavHostController, appState: AppState){
             Button(
                 onClick = {
                     when{
-                        email.isBlank()|| contraseña.isBlank() || confirmarContraseña.isBlank() ->
+                        email.isBlank()|| contrasena.isBlank() || confirmarContrasena.isBlank() ->
                             error = "Todos los Campos son Obligatorios"
                         !email.contains("@") ->
                             error = "Email no Válido"
                         email.length < 6 ->
                             error = "El email debe tener al menos 6 caracteres"
-                        contraseña.length < 6 ->
+                        contrasena.length < 6 ->
                             error = "La contraseña debe tener al menos 6 caracteres"
-                        contraseña != confirmarContraseña ->
+                        contrasena != confirmarContrasena ->
                             error = "La contraseña no coincide"
-                        !appState.registrarUsuario(email, contraseña) ->
+                        !appState.registrarUsuario(email, contrasena) ->
                             error = "El Usuario ya Existe"
                         else -> {
                             error = ""
