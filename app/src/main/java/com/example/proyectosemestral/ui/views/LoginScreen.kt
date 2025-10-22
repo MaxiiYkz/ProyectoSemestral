@@ -77,8 +77,7 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
             Icon(
                 imageVector = Icons.Default.Person,
                 contentDescription = "Logo",
-                modifier = Modifier.size(100.dp),
-                tint = MaterialTheme.colorScheme.primary
+                modifier = Modifier.size(100.dp)
             )
 
             Text(
