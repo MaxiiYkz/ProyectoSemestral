@@ -90,6 +90,7 @@ fun RegistroScreen(navController: NavHostController, appState: AppState){
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("Email") },
+
                 modifier = Modifier.fillMaxWidth(),
                 leadingIcon = {
                     Icon(Icons.Default.Email, contentDescription = "Icono de Email")
