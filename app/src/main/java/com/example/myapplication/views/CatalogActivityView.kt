@@ -31,7 +31,6 @@ import com.example.myapplication.ui.theme.NetGamesTheme
 
 fun CatalogView(navController: NavController) {
 
-fun CatalogView() {
 
 
     val games = listOf(
@@ -79,6 +78,7 @@ fun CatalogView() {
 }
 
 
+@Composable
 fun GameCard(game: Game,onBuyClicked: () -> Unit) {
 
     Card(
@@ -115,23 +115,25 @@ fun GameCard(game: Game,onBuyClicked: () -> Unit) {
             Spacer(modifier = Modifier.height(8.dp))
             Button(onClick = { onBuyClicked() }) {
 
-            Button(onClick = { /* Lógica de compra */ }) {
+                Button(onClick = { /* Lógica de compra */ }) {
 
-                Text("Comprar")
+                    Text("Comprar")
+                }
             }
         }
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
 fun CatalogViewPreview() {
 
-    NetGamesTheme { val navController = rememberNavController()
+    NetGamesTheme {
+        val navController = rememberNavController()
         CatalogView(navController = navController)
     }
-
-    CatalogView()
-
 }
+
 
