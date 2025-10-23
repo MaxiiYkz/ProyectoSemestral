@@ -1,10 +1,12 @@
-package com.example.myapplication
+package com.example.myapplication.Adapter
 
+import com.example.myapplication.Data.Review
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 
 class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
 

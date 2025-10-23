@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity() {
 
         // Redirigir si no hay sesión iniciada
         if (!sessionManager.isSessionActive()) {
-            startActivity(Intent(this, LoginActivity::class.java))
+            //startActivity(Intent(this, LoginActivity::class.java))
             finish() // Cierra esta actividad para que el usuario no pueda volver con el botón "atrás"
             return
         }
@@ -36,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
         // Configurar botón de cierre de sesión
         logoutButton.setOnClickListener {
             sessionManager.logout()
-            startActivity(Intent(this, LoginActivity::class.java))
+            //startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
 

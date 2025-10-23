@@ -1,5 +1,6 @@
-package com.example.myapplication
-// adapters/CategoryAdapter.kt
+package com.example.myapplication.Adapter
+
+import com.example.myapplication.Data.Category
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 
 class CategoryAdapter(private val categoryList: List<Category>) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
@@ -17,6 +19,7 @@ class CategoryAdapter(private val categoryList: List<Category>) :
         val descView: TextView = itemView.findViewById(R.id.text_category_desc)
         val button: Button = itemView.findViewById(R.id.button_see_more)
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context)

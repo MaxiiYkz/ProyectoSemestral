@@ -1,6 +1,6 @@
-package com.example.myapplication
+package com.example.myapplication.Adapter
 
-
+import com.example.myapplication.Data.Game
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +8,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.bumptech.glide.Glide
-
+import com.example.myapplication.R
 
 class GameAdapter(
     private val games: List<Game>,
@@ -34,7 +33,7 @@ class GameAdapter(
         holder.title.text = game.title
         holder.price.text = "$${game.price}"
         Glide.with(holder.itemView.context)
-            .load(game.imageUrl) // Carga la URL de la imagen
+            .load(game.imageUrl)
             .into(holder.image)
 
         holder.buyButton.setOnClickListener {
