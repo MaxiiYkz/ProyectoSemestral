@@ -15,7 +15,7 @@ fun AppNavigation(navController: NavHostController, appState: AppState){
     ){
         composable("login") { LoginScreen(navController, appState) }
         composable("registro") { RegistroScreen(navController, appState) }
-
+        composable("recuperar") { RecuperarScreen(navController, appState) }
     }
 
 }

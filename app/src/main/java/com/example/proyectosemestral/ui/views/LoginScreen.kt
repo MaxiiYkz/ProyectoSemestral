@@ -20,7 +20,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -158,6 +157,10 @@ fun LoginScreen(navController: NavHostController, appState: AppState){
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                TextButton(onClick = { navController.navigate("recuperar")}) {
+                    Text("¿Olvidaste tu contraseña?")
+                }
+
                 TextButton(onClick =  { navController.navigate("registro")}) {
                     Text("¿No tienes cuenta? Regístrate Aquí")
                 }
