@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -67,13 +68,18 @@ fun ProfileView(username: String,purchaseViewModel: PurchaseViewModel = viewMode
 
             Button(
                 onClick = { /* TODO: Implementar cerrar sesión */ },
-                modifier = Modifier.fillMaxWidth()
-            ) {
+                fontSize = 18.sp)
+
+            Spacer(modifier = Modifier.weight(1f))
                 Text("Cerrar Sesión")
+
+
             }
+
         }
     }
 }
+
 @Composable
 fun PurchaseItem(purchase: Purchase) {
     Card(
@@ -109,6 +115,7 @@ fun PurchaseItem(purchase: Purchase) {
 @Preview(showBackground = true)
 @Composable
 fun ProfileViewPreview() {
+
     NetGamesTheme {
         val previewViewModel = PurchaseViewModel()
 
@@ -123,5 +130,4 @@ fun ProfileViewPreview() {
             ProfileView(username = "UsuarioEjemplo", purchaseViewModel = previewViewModel)
         }
     }
-
 

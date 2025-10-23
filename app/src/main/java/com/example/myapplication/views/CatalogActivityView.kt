@@ -25,9 +25,14 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.ui.theme.NetGamesTheme
 
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+
 fun CatalogView(navController: NavController) {
+
+fun CatalogView() {
+
 
     val games = listOf(
         Game("Red Dead Redemption 2", "$9.990", R.drawable.rdr2),
@@ -65,14 +70,17 @@ fun CatalogView(navController: NavController) {
             ) {
                 items(games) { game ->
                     GameCard(game = game, onBuyClicked = {navController.navigate("profile")})
+
+
                 }
             }
         }
     }
 }
 
-@Composable
+
 fun GameCard(game: Game,onBuyClicked: () -> Unit) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -106,6 +114,9 @@ fun GameCard(game: Game,onBuyClicked: () -> Unit) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Button(onClick = { onBuyClicked() }) {
+
+            Button(onClick = { /* Lógica de compra */ }) {
+
                 Text("Comprar")
             }
         }
@@ -115,8 +126,12 @@ fun GameCard(game: Game,onBuyClicked: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun CatalogViewPreview() {
+
     NetGamesTheme { val navController = rememberNavController()
         CatalogView(navController = navController)
     }
+
+    CatalogView()
+
 }
 
