@@ -83,7 +83,6 @@ fun ProfileView(username: String,purchaseViewModel: PurchaseViewModel = viewMode
 
         }
     }
-
 @Composable
 fun PurchaseItem(purchase: Purchase) {
     Card(
