@@ -8,26 +8,30 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CategoryAdapter(private val categories: List<Category>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(private val categoryList: List<Category>) :
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val image: ImageView = view.findViewById(R.id.image_category)
-        val title: TextView = view.findViewById(R.id.text_category_title)
-        val description: TextView = view.findViewById(R.id.text_category_desc)
-        val button: Button = view.findViewById(R.id.button_see_more)
+    class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.image_category)
+        val titleView: TextView = itemView.findViewById(R.id.text_category_title)
+        val descView: TextView = itemView.findViewById(R.id.text_category_desc)
+        val button: Button = itemView.findViewById(R.id.button_see_more)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_category, parent, false)
+        return CategoryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val category = categories[position]
-        holder.image.setImageResource(category.imageResId)
-        holder.title.text = category.title
-        holder.description.text = category.description
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        val category = categoryList[position]
+        holder.imageView.setImageResource(category.imageResId)
+        holder.titleView.text = category.title
+        holder.descView.text = category.description
     }
 
-    override fun getItemCount() = categories.size
+    override fun getItemCount(): Int {
+        return categoryList.size
+    }
 }

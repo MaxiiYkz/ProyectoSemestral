@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupCategories() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewCategories)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         val categoryList = listOf(
             Category(
@@ -36,12 +36,13 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.casual
             )
         )
-        recyclerView.adapter = CategoryAdapter(categoryList)
+        val adapter = CategoryAdapter(categoryList)
+        recyclerView.adapter = adapter
     }
 
     private fun setupReviews() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewReviews)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val reviewList = listOf(
             Review(5, "Compré un juego y llegó instantáneamente, excelente servicio.", "Juan Pérez"),
